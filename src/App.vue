@@ -40,17 +40,54 @@
       </div>
     </div>
 
-    <div class="hit-goods">
-      <div class="hit-goods__first">
-        <div class="hit-goods__first hit-goods__first--good-photo"></div>
-        <p>Футболка “Rick and Morty”</p>
-        <p>790 ₽</p>
-        <button class="purchase-btn">Купить</button>
-      </div>
-      <div class="hit-goods__second"></div>
-      <div class="hit-goods__third"></div>
-    </div>
+    <div class="hits-goods-page">
 
+      <div class="hits-logo"></div>
+
+      <div class="hit-goods-wrapper">
+        <div class="hit-goods">
+          <div class="hit-goods__photo--first hit-goods__photo"></div>
+          <p>Футболка “Rick and Morty”</p>
+          <p>790 ₽</p>
+          <button class="purchase-btn">Купить</button>
+        </div>
+
+        <div class="hit-goods">
+          <div class="hit-goods__photo--second hit-goods__photo"></div>
+          <p>Худи “Sexual Pressure” от Юлика</p>
+          <p>4000 ₽</p>
+          <button class="purchase-btn">Купить</button>
+        </div>
+
+        <div class="hit-goods">
+          <div class="hit-goods__photo--third hit-goods__photo"></div>
+          <p>Фигурка Демогоргон “Stranger Things” </p>
+          <p>2500 ₽</p>
+          <button class="purchase-btn">Купить</button>
+        </div>
+
+        <div class="hit-goods">
+          <div class="hit-goods__photo--first hit-goods__photo"></div>
+          <p>Футболка “Rick and Morty”</p>
+          <p>790 ₽</p>
+          <button class="purchase-btn">Купить</button>
+        </div>
+
+        <div class="hit-goods">
+          <div class="hit-goods__photo--second hit-goods__photo"></div>
+          <p>Худи “Sexual Pressure” от Юлика</p>
+          <p>4000 ₽</p>
+          <button class="purchase-btn">Купить</button>
+        </div>
+
+        <div class="hit-goods">
+          <div class="hit-goods__photo--third hit-goods__photo"></div>
+          <p>Фигурка Демогоргон “Stranger Things” </p>
+          <p>2500 ₽</p>
+          <button class="purchase-btn">Купить</button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -207,11 +244,25 @@
 
 .active-btn {background: $main-color;}
 
-.hit-goods {
-  width: 365px;
-  height: 540px;
+.hits-goods-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hits-logo {
+  width: 187px;
+  height: 129px;
+  margin-top: 57px;
+  margin-bottom: 5px;
+  background-image: url("./assets/hits-logo.svg");
+}
+
+.hit-goods-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   background-color: $main-color;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   .purchase-btn {
     width: 192px;
@@ -224,17 +275,31 @@
     cursor: pointer;
   }
 
-  &__first {
+  .hit-goods {
+    width: 365px;
+    height: 540px;
     display: flex;
-    justify-content: center;
     flex-flow: column;
     align-items: center;
+    margin: 50px 15px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-    &--good-photo {
+    &__photo {
       width: 365px;
       height: 365px;
-      background-image: url("./assets/t-shirt_R&M.jpg");
       background-size: cover;
+
+      &--first {
+      background-image: url("./assets/t-shirt_R&M.jpg");
+      }
+
+      &--second {
+        background-image: url("./assets/hudi_yulik.jpg");
+      }
+
+      &--third {
+        background-image: url("./assets/demagorgon.jpg");
+      }
     }
   }
 }
