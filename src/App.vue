@@ -11,10 +11,10 @@
 
     <nav class="main-menu">
       <ul>
-        <li class="expandable">Коллекции</li>
+        <li>Коллекции <i class="arrow-img"></i></li>
         <li>SALE</li>
-        <li>Одежда</li>
-        <li>Аксессуары</li>
+        <li>Одежда <i class="arrow-img"></i></li>
+        <li>Аксессуары <i class="arrow-img"></i></li>
         <li>Стикеры</li>
         <li>Канцелярия</li>
         <li>Фигурки</li>
@@ -88,11 +88,31 @@
         </div>
       </div>
     </div>
+
+    <div class="delivery">
+      <h2>Доставка и оплата</h2>
+      <p class="heading-delivery">Оплата</p>
+      <p>- Мы работаем по 100% предоплате.</p>
+      <p>- Оплата только с банковской карты или переводом на Яндекс.Деньги</p>
+      <p>- Отправка товара только после полной оплаты заказа</p>
+      <p class="heading-delivery">Доставка</p>
+      <p>- Доставка Почтой России, отправка по России от 300р., по всему миру от 600р.</p>
+      <p>- При оформлении доставки Почтой России, получение товара происходит на почтовом отделении.</p>
+      <p>- Необходимо полностью указывать адрес, где вы сможете получить почтовое извещение.</p>
+      <p>- Необходимо полностью указывать ФИО, в противном случае почтовая служба может не выдать ваш заказ.</p>
+      <p>- Возможна доставка курьерской службой EMS, тариф рассчитывается при оформлении заказа.</p>
+      <p>- Для жителей Санкт-Петербурга возможен самовывоз по адресу Лиговский пр-т 64, магазин Great Merch</p>
+      <p>- Если в описании товара указано что это предзаказ,  то ваш заказ будет отправлен после изготовления партии. Сроки изготовления указаны на странице товара.</p>
+      <p>- Срок доставки от 7 до 30 дней, в зависимости от региона и способа доставки.</p>
+      <p>- В комментариях к заказу указывайте страницу ВК для оперативной связи.</p>
+      <p>ИП Белова Валерия Дмитриевна</p>
+      <p>ИНН: 111111111111, ОГРНИП:00000000000000</p>
+    </div>
   </div>
 </template>
 
 <style lang="scss">
-  @import url('https://fonts.googleapis.com/css2?family=Nova+Oval&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
   $main-color: #FFFFFF;
   $gray-color: #ADAAAA;
   $font-color: #373229;
@@ -102,7 +122,7 @@
     font-size: 16px;
     color: $font-color;
     font-weight: 400;
-    font-family: Nova Oval;
+    font-family: Roboto;
     font-style: normal;
   }
 
@@ -155,6 +175,7 @@
   .main-menu {
 
       ul {
+        margin-top: 0;
         list-style-type: none;
         display: flex;
         justify-content: center;
@@ -162,16 +183,29 @@
       }
 
       li {
-        margin-left: 15px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        text-transform: uppercase;
+        padding: 10px;
+
+        &:hover {
+          background: #ebebeb;
+          .arrow-img {
+            transform: rotate(90deg);
+          }
+        }
       }
 
-    .expandable {
-      background-image: url("./assets/arrow.svg");
-      background-repeat: no-repeat;
+    .arrow-img {
       background-position: right;
-      padding-right: 25px;
+      background-image: url("./assets/arrow.svg");
+      width: 24px;
+      height: 24px;
+      transition: 0.3s;
+    }
   }
-}
+
 .search {
   
   &__btn {
@@ -248,6 +282,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-bottom: $gray-color solid 1px;
 }
 
 .hits-logo {
@@ -284,6 +319,10 @@
     margin: 50px 15px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
+    p {
+      font-weight: 500;
+    }
+
     &__photo {
       width: 365px;
       height: 365px;
@@ -301,6 +340,25 @@
         background-image: url("./assets/demagorgon.jpg");
       }
     }
+  }
+}
+
+.delivery {
+  width: 611px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+
+  h2 {
+    font-size: 28px;
+    line-height: 34px;
+  }
+  .heading-delivery {
+    font-weight: 500;
+  }
+
+  p {
+    line-height: 1.8em;
   }
 }
 </style>
