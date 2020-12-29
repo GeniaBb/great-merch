@@ -1,26 +1,12 @@
 <template>
   <div id="app">
-    <header class="page-header">
-      <img src="./assets/logo.png" alt="Логотип магазина" class="logo">
-      <div class="social-media-icons">
-        <a href="https://www.instagram.com/" class="social-media-icons__icon social-media-icons__icon--inst"></a>
-        <a href="https://facebook.com/" class="social-media-icons__icon social-media-icons__icon--fb"></a>
-        <a href="https://vk.com/" class="social-media-icons__icon social-media-icons__icon--vk"></a>
-      </div>
-    </header>
+    <div>
+      <app-menu></app-menu>
+    </div>
 
-    <nav class="main-menu">
-      <ul>
-        <li>Коллекции <i class="arrow-img"></i></li>
-        <li>SALE</li>
-        <li>Одежда <i class="arrow-img"></i></li>
-        <li>Аксессуары <i class="arrow-img"></i></li>
-        <li>Стикеры</li>
-        <li>Канцелярия</li>
-        <li>Фигурки</li>
-        <li>Подарочные Сертификаты</li>
-      </ul>
-    </nav>
+    <div>
+      <app-mainMenu></app-mainMenu>
+    </div>
 
     <div class="search">
       <button class="search__btn"></button>
@@ -40,53 +26,8 @@
       </div>
     </div>
 
-    <div class="hits-goods-page">
-
-      <div class="hits-logo"></div>
-
-      <div class="hit-goods-wrapper">
-        <div class="hit-goods">
-          <div class="hit-goods__photo--first hit-goods__photo"></div>
-          <p>Футболка “Rick and Morty”</p>
-          <p>790 ₽</p>
-          <button class="purchase-btn">Купить</button>
-        </div>
-
-        <div class="hit-goods">
-          <div class="hit-goods__photo--second hit-goods__photo"></div>
-          <p>Худи “Sexual Pressure” от Юлика</p>
-          <p>4000 ₽</p>
-          <button class="purchase-btn">Купить</button>
-        </div>
-
-        <div class="hit-goods">
-          <div class="hit-goods__photo--third hit-goods__photo"></div>
-          <p>Фигурка Демогоргон “Stranger Things” </p>
-          <p>2500 ₽</p>
-          <button class="purchase-btn">Купить</button>
-        </div>
-
-        <div class="hit-goods">
-          <div class="hit-goods__photo--first hit-goods__photo"></div>
-          <p>Футболка “Rick and Morty”</p>
-          <p>790 ₽</p>
-          <button class="purchase-btn">Купить</button>
-        </div>
-
-        <div class="hit-goods">
-          <div class="hit-goods__photo--second hit-goods__photo"></div>
-          <p>Худи “Sexual Pressure” от Юлика</p>
-          <p>4000 ₽</p>
-          <button class="purchase-btn">Купить</button>
-        </div>
-
-        <div class="hit-goods">
-          <div class="hit-goods__photo--third hit-goods__photo"></div>
-          <p>Фигурка Демогоргон “Stranger Things” </p>
-          <p>2500 ₽</p>
-          <button class="purchase-btn">Купить</button>
-        </div>
-      </div>
+    <div>
+      <app-productCard ></app-productCard>
     </div>
 
     <div class="delivery">
@@ -113,9 +54,7 @@
 
 <style lang="scss">
   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
-  $main-color: #FFFFFF;
-  $gray-color: #ADAAAA;
-  $font-color: #373229;
+  @import "./assets/styles/_variables.scss";
 
   * {
     box-sizing: border-box;
@@ -129,81 +68,6 @@
   body {
     padding: 0;
     margin: 0;
-  }
-
-  .page-header {
-    width: 100%;
-    height: 108px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 66px 14px 66px;
-    background-color: $main-color;
-    border-bottom: $gray-color solid 1px;
-
-    .logo {
-      width: 208px;
-      height: 80px;
-    }
-
-    .social-media-icons {
-      display: flex;
-
-      &__icon {
-        width: 24px;
-        height: 24px;
-        display: block;
-        margin-left: 35px;
-
-        &--inst {
-          background-image: url("./assets/inst_color_black.svg");
-        }
-
-        &--fb {
-          background-image: url("./assets/fb_color_black.svg");
-        }
-
-        &--vk {
-          background-size: contain;
-          background-image: url("./assets/vk_color_black.svg");
-        }
-      }
-    }
-
-  }
-
-  .main-menu {
-
-      ul {
-        margin-top: 0;
-        list-style-type: none;
-        display: flex;
-        justify-content: center;
-        cursor: pointer;
-      }
-
-      li {
-        height: 60px;
-        display: flex;
-        align-items: center;
-        text-transform: uppercase;
-        padding: 10px;
-
-        &:hover {
-          background: #ebebeb;
-          .arrow-img {
-            transform: rotate(90deg);
-          }
-        }
-      }
-
-    .arrow-img {
-      background-position: right;
-      background-image: url("./assets/arrow.svg");
-      width: 24px;
-      height: 24px;
-      transition: 0.3s;
-    }
   }
 
 .search {
@@ -245,7 +109,7 @@
       background-position: center;
 
       &--first {
-        background-image: url("./assets/carousel_kuzma.jpg");
+      background-image: url("./assets/carousel_kuzma.jpg");
       }
 
       &--second {
@@ -278,70 +142,7 @@
 
 .active-btn {background: $main-color;}
 
-.hits-goods-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-bottom: $gray-color solid 1px;
-}
 
-.hits-logo {
-  width: 187px;
-  height: 129px;
-  margin-top: 57px;
-  margin-bottom: 5px;
-  background-image: url("./assets/hits-logo.svg");
-}
-
-.hit-goods-wrapper {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  background-color: $main-color;
-
-  .purchase-btn {
-    width: 192px;
-    height: 32px;
-    border: none;
-    outline: none;
-    background-color: $main-color;
-    border: 1px solid #CEC7BB;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    cursor: pointer;
-  }
-
-  .hit-goods {
-    width: 365px;
-    height: 540px;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    margin: 50px 15px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-    p {
-      font-weight: 500;
-    }
-
-    &__photo {
-      width: 365px;
-      height: 365px;
-      background-size: cover;
-
-      &--first {
-      background-image: url("./assets/t-shirt_R&M.jpg");
-      }
-
-      &--second {
-        background-image: url("./assets/hudi_yulik.jpg");
-      }
-
-      &--third {
-        background-image: url("./assets/demagorgon.jpg");
-      }
-    }
-  }
-}
 
 .delivery {
   width: 611px;
