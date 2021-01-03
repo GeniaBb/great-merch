@@ -1,16 +1,19 @@
 <template>
-  <div id="app">
+  <div id="app" @click="changeSearchVisability(false)">
     <div>
       <app-menu></app-menu>
     </div>
 
     <div>
-      <app-mainMenu></app-mainMenu>
+      <app-mainMenu></app-mainMenu>   
     </div>
 
     <div class="search">
-      <button class="search__btn"></button>
+      <button class="search__btn" @click.stop="changeSearchVisability(true)"></button>
+      <input type="text" placeholder="Поиск товаров" class="inputSearch" v-if="showInputSearch">
+      <div></div>
     </div>
+
 
     <div class="carousel">
       <div class="carousel-tape" v-bind:style="`right: ${carousel.right}vw`">
@@ -71,6 +74,32 @@
   }
 
 .search {
+  display: flex;
+  justify-content: space-between;
+
+  .inputSearch {
+    width: 625px;
+    height: 64px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: $main-color;
+    background-image: url("./assets/searchInput.svg");
+    background-repeat: no-repeat;
+    background-position: 15px 50%;
+    padding-left: 55px;
+    box-shadow: 0px 17px 44px rgba(0, 0, 0, 0.25);
+    position: relative;
+    bottom: 20px;
+
+    &::placeholder {
+      font-size: 18px;
+      color: $gray-color;
+      font-weight: 400;
+      font-family: Roboto;
+      font-style: normal;
+    }
+  }
   
   &__btn {
     width: 68px;
@@ -170,6 +199,7 @@ export default {
   data: () => ({
     carousel: {
       right: 0,
+      
     },
     offset: {
       oneBtn: 0,
@@ -177,10 +207,15 @@ export default {
       threeBtn: 200
     },
     isActive: true,
+    showInputSearch: false,
   }),
 
   // Методы
   methods: {
+    changeSearchVisability(isVisible) {
+      this.showInputSearch = isVisible
+      console.log(isVisible);
+    },
     moveCarousel(offset) {
       this.carousel.right = offset
       if (this.carousel.right >= 300) {
